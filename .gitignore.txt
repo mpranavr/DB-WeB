@@ -2,6 +2,7 @@
 __pycache__/
 .vscode/
 venv/
+.venv
 .env
 home/migrations/__pycache__/
 static/css/login12.css
