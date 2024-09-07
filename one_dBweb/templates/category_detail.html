@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }} - Category Details</title>
+    <!-- Add Bootstrap CSS or other styling here -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+
+        <h3>Products in this Category:</h3>
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>{{ product.name }} - ${{ product.price }}</span>
+                    <a href="{% url 'product_detail' product.product_id %}" class="btn btn-primary">View Details</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No products available in this category.</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'category_list' %}" class="btn btn-secondary mt-3">Back to Category List</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
